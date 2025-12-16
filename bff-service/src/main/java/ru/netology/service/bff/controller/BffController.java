@@ -1,5 +1,6 @@
 package ru.netology.service.bff.controller;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,12 +16,9 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/site-bff")
+@RequiredArgsConstructor
 public class BffController {
     private final WebClient webClient;
-
-    public BffController(WebClient webClient) {
-        this.webClient = webClient;
-    }
 
     @GetMapping("/user/{userId}")
     public ResponseEntity<UserProfileDto> getUserProfile(@PathVariable("userId") Long userId) {
